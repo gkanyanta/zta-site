@@ -391,7 +391,8 @@ def seniors_gallery() -> str:
     return render_template('seniors.html', title='Seniors', images=image_urls)
 
 
+import os
+
 if __name__ == "__main__":
-    # Ensure the database and tables exist before starting the server
-    init_db()
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
