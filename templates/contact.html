@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-5" style="background-color:#f8f9fa;">
+    <div class="container">
+        <h1 class="mb-4">Contact Us</h1>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h3>Head Office</h3>
+                <p>
+                    Zambia Tennis Association<br>
+                    P.O. Box 12345<br>
+                    Lusaka National Tennis Centre<br>
+                    Lusaka, Zambia
+                </p>
+                <p><strong>Phone:</strong> +260 XX XXX XXXX</p>
+                <p><strong>Email:</strong> info@zambiatennis.com</p>
+                <p>Connect with us on social media:</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#" class="text-decoration-none">Facebook</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-decoration-none">Twitter</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-decoration-none">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h3>Send us a Message</h3>
+                <form action="{{ url_for('contact') }}" method="post" class="row g-3">
+                    <div class="col-12">
+                        <label for="name" class="form-label">Your Name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="email" class="form-label">Your Email<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject">
+                    </div>
+                    <div class="col-12">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

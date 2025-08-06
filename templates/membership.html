@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="mb-4">Membership</h1>
+        <p class="lead">By becoming a member of the Zambia Tennis Association you help support the growth of tennis in our country.  Members receive updates on events, eligibility to enter national tournaments, access to coaching resources and the chance to influence the future of the sport through participation in our general meetings.</p>
+        <h2 class="mt-5">Membership Benefits</h2>
+        <ul>
+            <li>Entry into ZTA sanctioned tournaments and events</li>
+            <li>Access to coaching clinics and training resources</li>
+            <li>Discounts on equipment and apparel from partner stores</li>
+            <li>Eligibility for national team selection</li>
+            <li>Voting rights at annual general meetings</li>
+        </ul>
+
+        <h2 class="mt-5">Register as a Member</h2>
+        <form action="{{ url_for('membership') }}" method="post" class="row g-3">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Full Name<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email Address<span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="col-md-6">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" name="phone">
+            </div>
+            <div class="col-md-6">
+                <label for="category" class="form-label">Membership Category</label>
+                <select class="form-select" id="category" name="category">
+                    <option value="Player">Player</option>
+                    <option value="Coach">Coach</option>
+                    <option value="Official">Official</option>
+                    <option value="Club/Academy">Club/Academy</option>
+                    <option value="Sponsor">Sponsor</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" name="address">
+            </div>
+            <div class="col-md-6">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" class="form-control" id="age" name="age" min="1">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit Registration</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

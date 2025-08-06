@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <h1 class="mb-4">Seniors Gallery</h1>
+        <p class="lead">Our senior events showcase experienced players and national contenders.  Recent highlights include the Copperbelt&nbsp;Open finals, where new champions were crowned after a week of hard‑fought matches, and the MIKA International Championships, which draw competitors from across Southern Africa thanks to generous sponsorship from MIKA Hotels.  The association has also organised national trials for the All&nbsp;Africa Games and welcomed recognition from the National Olympic Committee of Zambia following the successful hosting of our Annual General Meeting.  These initiatives underline our commitment to high‑performance tennis and continued growth on the international stage.</p>
+        <div class="row">
+            {% for img in images %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ img }}" class="card-img-top" alt="Senior player">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

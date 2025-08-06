@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <h1 class="mb-4">Madalas (Veterans) Gallery</h1>
+        <p class="lead">Celebrating our retired and social players who continue to keep the spirit of tennis alive.  The "Madalas" category features veterans who enjoy the game for recreation and camaraderie.</p>
+        <div class="row">
+            {% for img in images %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ img }}" class="card-img-top" alt="Veteran player">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <h1 class="mb-4">Juniors Gallery</h1>
+        <p class="lead">Our juniors programme nurtures the next generation of champions.  Over the past two years the association has hosted a series of youth tournaments and development camps.  Highlights include the IFS Invitational for under‑12 and under‑14 players at Kansanshi Golf Estate – an event sponsored by International Facilities Services and Kansanshi Mining Project – along with the Mike&nbsp;Mambwe Junior Championships and the Love‑40 Top Eight circuit.  These competitions provide high‑quality match play and coaching for our youngest athletes while instilling sportsmanship and a passion for tennis.</p>
+        <div class="row">
+            {% for img in images %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ img }}" class="card-img-top" alt="Junior player">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

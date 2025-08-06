@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-5" style="background-color:#f8f9fa;">
+    <div class="container">
+        <h1 class="mb-4">News &amp; Updates</h1>
+        {% for post in posts %}
+        <article class="mb-5 pb-4 border-bottom">
+            <h2>{{ post.title }}</h2>
+            <p class="text-muted">{{ post.date }}</p>
+            <p>{{ post.summary }}</p>
+            <details>
+                <summary class="text-primary" style="cursor:pointer;">Read full article</summary>
+                <p class="mt-2">{{ post.content }}</p>
+            </details>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

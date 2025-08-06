@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block calendar_styles %}
+    <!-- FullCalendar stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="mb-4">Events Calendar</h1>
+        <div id="calendar"></div>
+        <noscript>
+            <!-- Fallback if JavaScript is disabled -->
+            <p>Upcoming events:</p>
+            <ul>
+                {% for event in events %}
+                <li><strong>{{ event.title }}</strong> ({{ event.start }} – {{ event.end }}) – {{ event.location }}</li>
+                {% endfor %}
+            </ul>
+        </noscript>
+    </div>
+</section>
+{% endblock %}
+
+{% block calendar_scripts %}
+    <!-- FullCalendar script -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek'
+                },
+                events: function(fetchInfo, successCallback, failureCallback) {
+                    fetch('{{ url_for('api_events') }}')
+                        .then(response => response.json())
+                        .then(data => {
+                            // Convert events into FullCalendar's expected format
+                            const events = data.map(ev => ({
+                                title: ev.title,
+                                start: ev.start,
+                                end: ev.end,
+                                extendedProps: { location: ev.location, description: ev.description }
+                            }));
+                            successCallback(events);
+                        })
+                        .catch(error => failureCallback(error));
+                },
+                eventTooltip: true,
+                eventClick: function(info) {
+                    // Display alert with event details; could be replaced with modal dialog
+                    const ev = info.event;
+                    const location = ev.extendedProps.location;
+                    const description = ev.extendedProps.description;
+                    alert(`${ev.title}\n${ev.startStr} – ${ev.endStr}\nLocation: ${location}\n\n${description}`);
+                }
+            });
+            calendar.render();
+        });
+    </script>
+{% endblock %}

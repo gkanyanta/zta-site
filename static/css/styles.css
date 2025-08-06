@@ -1,0 +1,43 @@
+/* Custom styles for the Zambia Tennis Association site */
+
+/* Hero section */
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 0;
+}
+
+.hero-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* Adjust summary details dropdown style */
+details > summary {
+    font-weight: 600;
+}
+
+/* Table styles: lighten alternate rows for readability */
+table.table tbody tr:nth-of-type(odd) {
+    background-color: #fdfdfd;
+}
+
+/* Ensure cards take full height in columns */
+.card.h-100 {
+    display: flex;
+    flex-direction: column;
+}
