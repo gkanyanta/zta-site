@@ -13,10 +13,24 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+    <!-- Top bar with CTA and quick links -->
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div><small>Affiliated with the International Tennis Federation</small></div>
+            <div class="d-flex align-items-center">
+                <a href="{{ url_for('membership') }}" class="btn-cta me-3">Become a ZTA Member</a>
+                <a href="{{ url_for('ranking') }}">Latest Rankings</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">Zambia Tennis Association</a>
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/zta_logo.png') }}" alt="ZTA Logo">
+                <span class="fw-bold text-white">ZTA</span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -27,10 +41,10 @@
                     <li class="nav-item"><a class="nav-link {% if title == 'News' %}active{% endif %}" href="{{ url_for('news') }}">News</a></li>
                     <li class="nav-item"><a class="nav-link {% if title == 'Events' %}active{% endif %}" href="{{ url_for('events') }}">Events</a></li>
                     <li class="nav-item"><a class="nav-link {% if title == 'Rankings' %}active{% endif %}" href="{{ url_for('ranking') }}">Rankings</a></li>
-                    <li class="nav-item"><a class="nav-link {% if title == 'Membership' %}active{% endif %}" href="{{ url_for('membership') }}">Membership</a></li>
                     <li class="nav-item"><a class="nav-link {% if title == 'Juniors' %}active{% endif %}" href="{{ url_for('juniors_gallery') }}">Juniors</a></li>
                     <li class="nav-item"><a class="nav-link {% if title == 'Seniors' %}active{% endif %}" href="{{ url_for('seniors_gallery') }}">Seniors</a></li>
                     <li class="nav-item"><a class="nav-link {% if title == 'Veterans' %}active{% endif %}" href="{{ url_for('veterans_gallery') }}">Veterans</a></li>
+                    <li class="nav-item"><a class="nav-link {% if title == 'Membership' %}active{% endif %}" href="{{ url_for('membership') }}">Membership</a></li>
                     <li class="nav-item"><a class="nav-link {% if title == 'Contact' %}active{% endif %}" href="{{ url_for('contact') }}">Contact</a></li>
                 </ul>
             </div>

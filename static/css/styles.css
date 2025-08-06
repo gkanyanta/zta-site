@@ -41,3 +41,97 @@ table.table tbody tr:nth-of-type(odd) {
     display: flex;
     flex-direction: column;
 }
+
+/* =============================
+   Modern redesign additions
+   ============================= */
+
+/* Colour palette */
+:root {
+    --primary-color: #004b23; /* dark green inspired by Zambian flag */
+    --secondary-color: #e96d00; /* orange accent */
+    --light-bg: #f8f9fa;
+}
+
+/* Top bar for announcements and CTAs */
+.top-bar {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 0.875rem;
+    padding: 0.25rem 0;
+}
+.top-bar a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+.top-bar a.btn-cta {
+    background-color: var(--secondary-color);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-left: 0;
+}
+
+/* Navigation bar styling */
+.navbar {
+    background-color: var(--primary-color) !important;
+}
+.navbar-brand img {
+    height: 40px;
+    margin-right: 0.5rem;
+}
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+.navbar-nav .nav-link.active {
+    color: var(--secondary-color) !important;
+}
+
+/* Updated hero styling */
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 0;
+}
+.hero-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    color: #fff;
+}
+
+/* CTA buttons */
+.btn-cta,
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.btn-cta:hover,
+.btn-primary:hover {
+    background-color: #cf5f00;
+    border-color: #cf5f00;
+}
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}

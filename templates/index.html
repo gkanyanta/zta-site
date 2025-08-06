@@ -2,13 +2,11 @@
 {% block content %}
 <section class="hero position-relative">
     <!-- Hero image as background -->
-    <div class="hero-image" style="background-image: url('{{ url_for('static', filename='images/hero.png') }}');">
-        <div class="overlay d-flex align-items-center justify-content-center">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bold">Welcome to the Zambia Tennis Association</h1>
-                <p class="lead">Promoting tennis excellence and development across Zambia</p>
-                <a href="{{ url_for('membership') }}" class="btn btn-primary btn-lg">Become a Member</a>
-            </div>
+    <div class="hero-image" style="background-image: url('{{ url_for('static', filename='images/hero_new.png') }}');">
+        <div class="overlay">
+            <h1 class="display-4 fw-bold mb-3">Promoting Tennis, Building Champions</h1>
+            <p class="lead mb-4">Join us in nurturing talent, hosting premier tournaments and growing the sport across Zambia.</p>
+            <a href="{{ url_for('membership') }}" class="btn btn-cta btn-lg">Become a Member</a>
         </div>
     </div>
 </section>
